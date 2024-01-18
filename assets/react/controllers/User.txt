@@ -1,0 +1,83 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+// class Users {
+//   constructor(id, name, firstname, email,tel) {
+//     this.id = id;
+//     this.name = name;
+//     this.firstname = firstname;
+//     this.email = email;
+//     this.tel = tel;
+//   }
+export default function ListUsers() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+
+  // async function fetchUsers() {
+  //   try {
+  //     const response = await fetch('/users', {
+  //       method: 'GET',
+  //       headers: {
+  //         'Accept': 'Application/json',
+  //       },
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error(`Status Code Error: ${response.status}`);
+  //     }
+
+  //     const parsedData = await response.json();
+  //     console.log(parsedData);
+  //     const newUsers = parsedData.map(user => new Users(user.id, user.name, user.firstname, user.email));
+  //     setUsers(newUsers);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   fetchUsers();
+  // }, []);
+  useEffect(() => {
+    fetch('/users', {
+      method: 'GET',
+      headers: {
+        'Accept': 'Application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      const newUsers = response.map(user => new Users(user.id, user.name, user.firstname, user.email,user.tel));
+      setUsers(newUsers);
+    })
+    // console.log(response)
+  }, []);
+
+  return (
+    <div>
+      <h1>All userrrrrrrs</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>FirstName</th>
+            <th>Address</th>
+            <th>Tel</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.firstname}</td>
+              <td>{user.address}</td>
+              <td>{user.tel}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

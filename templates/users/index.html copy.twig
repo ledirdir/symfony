@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Utilisateurs{% endblock %}
+{% block body %}
+    <div id='root'>Hellolo</div>
+    {# {{ dump(users) }} #}
+    {# <p>Hello</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Firstname</th>
+                <th>email</th>
+                <th>tel</th>
+                <th>address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.tel }}</td>
+                    <td>{{ user.address }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> #}
+{% endblock %}
