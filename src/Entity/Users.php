@@ -13,6 +13,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
         #[ORM\Id]
         #[ORM\GeneratedValue]
         #[ORM\Column]
+        #[Groups(['user'])]
         private ?int $id = null;
         
         #[ORM\Column(length: 255, nullable: true)]
