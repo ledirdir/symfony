@@ -1,14 +1,7 @@
-// import './styles/app.css';
-// import { createRoot } from 'react-dom/client';
-// import React from 'react';
-// //import User from './react/controllers/User.jsx';
-// import Hello from './react/controllers/Hello.jsx';
-// const domNode = document.getElementById('root');
-// const root = createRoot(domNode);
-// root.render(<User />);
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import User from './react/controllers/User.jsx';
+import Header from './react/controllers/Header.jsx';
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -35,6 +28,7 @@ if (document.getElementById('app')) {
  
     root.render(
         <StrictMode>
+            <Header />
             <Main />
         </StrictMode>
     );
